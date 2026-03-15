@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: rgb(67, 67, 67);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    canvas {
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+    }
+}
