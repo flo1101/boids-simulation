@@ -1,10 +1,15 @@
 import { Vector } from './vector';
 
 export class Agent {
+    // Constants
+    MAX_SPEED: number = 3;
+    FIELD_OF_VIEW: number = Math.PI * 1.5; // 270 degrees
+    RADIUS: number = 5;
+
+    // Variables
     position: Vector;
     velocity: Vector;
     acceleration: Vector;
-    maxSpeed: number = 3;
 
     constructor(
         position: Vector = new Vector(0, 0),
@@ -22,7 +27,7 @@ export class Agent {
 
     update(): void {
         this.velocity = this.velocity.add(this.acceleration);
-        this.velocity = this.velocity.limit(this.maxSpeed);
+        this.velocity = this.velocity.limit(this.MAX_SPEED);
         this.position = this.position.add(this.velocity);
         this.acceleration = new Vector(0, 0); // acceleration is recomputed based on appllied forces each tick
     }

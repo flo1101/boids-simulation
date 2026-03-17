@@ -54,6 +54,13 @@ export class Vector {
         return this.sub(v).magnitude();
     }
 
+    angleTo(v: Vector): number {
+        const dot = this.x * v.x + this.y * v.y;
+        const mags = this.magnitude() * v.magnitude();
+        if (mags === 0) return 0;
+        return Math.acos(Math.max(-1, Math.min(1, dot / mags)));
+    }
+
     copy(): Vector {
         return new Vector(...this.components);
     }
